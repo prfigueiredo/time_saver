@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:time_saver/Model/model_page.dart';
 import 'package:time_saver/Presenter/presenter_page.dart';
 
 //View (Model-View-Presenter pattern)
@@ -13,13 +14,15 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   //Instancing Presenter
   Presenter c = Presenter();
+  //Instancing Model
+  Model m = Model();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          '<< Remote Job Time Saver >>',
+        title: Text(
+          m.staticTexts[0],
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.orangeAccent,
@@ -59,7 +62,7 @@ class _HomeState extends State<Home> {
               height: 22,
             ),
             Text(
-              'How much time do you spend going to the office?',
+              m.staticTexts[1],
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
             const SizedBox(height: 10),
@@ -73,28 +76,28 @@ class _HomeState extends State<Home> {
             ),
             const Divider(),
             Text(
-              'And on the way home?',
+              m.staticTexts[2],
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10),
             TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: 'MINUTES(MINS)',
+                labelText: m.staticTexts[3],
               ),
               textAlign: TextAlign.center,
               controller: c.backController,
             ),
             const Divider(),
             Text(
-              '...waiting the elevator?',
+              m.staticTexts[4],
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
             ),
             const SizedBox(height: 10),
             TextField(
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: 'MINUTES(MINS)',
+                labelText: m.staticTexts[3],
               ),
               textAlign: TextAlign.center,
               controller: c.elevatorController,
@@ -110,7 +113,7 @@ class _HomeState extends State<Home> {
                       });
                     },
                     child: Text(
-                      'VERDICT!',
+                      m.staticTexts[5],
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ))),

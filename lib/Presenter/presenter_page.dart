@@ -26,9 +26,8 @@ class Presenter{
     picture = 'assets/stressedout.svg';
     if(tempo == null) {
       info = "Error loading data...";
-      print(tempo);
     }else{
-      info = "Gosh! You saved ${tempo.toString()} days per year of your life!";
+      info = "Gosh! You saved ${tempo!.toStringAsFixed(2)} days per year of your life!";
     }
   }
 
